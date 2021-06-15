@@ -6,5 +6,17 @@
 
 module.exports = {
   siteName: 'Gridsome',
-  plugins: []
+  plugins: [
+      {
+        use: '@gridsome/source-wordpress',
+        options: {
+          baseUrl: 'https://proyectos.picnic.pe/drzaidmanweb/index.php', // required
+          typeName: 'WordPress', // GraphQL schema name
+        }
+      }
+  ],
+    templates: {
+        WordPressPost: '/:year/:month/:day/:slug',
+        WordPressTag: '/tag/:slug'
+    },
 }
